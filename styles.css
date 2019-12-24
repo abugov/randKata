@@ -1,0 +1,28 @@
+.ui-slider {
+    width: 200px;
+}
+
+.ui-slider .ui-slider-handle {
+    position: absolute;
+    height: 26px;
+    width: 54px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .ui-slider .white {
+    background-image: url("images/white.jpg");
+  }
+
+  .ui-slider .orange {
+    background-image: url("images/orange.jpg");
+  }
+
+  .ui-slider .blue {
+    background-image: url("images/blue.jpg");
+  }
+
+  .ui-slider .yellow {
+    background-image: url("images/yellow.jpg");
+  }
