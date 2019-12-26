@@ -1,15 +1,51 @@
 <html lang="us">
 <head>
+	<!-- Mobile installtohomescreen -->
+	<title>Rand Kata</title>
+	<meta name="application-name" content="Rand Kata">
+	<meta name="apple-mobile-web-app-title" content="Rand Kata">
+	<meta name="viewport" content="width=300">
+	<meta name="mobile-web-app-capable" content="yes">
+
+	<!-- for ios 7 style -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<link rel="apple-touch-icon" href="icon192.png">
+	<!-- for Chrome on Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" sizes="192x192" href="icon192.png">
+
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="manifest" href="manifest.json">
+	<link rel="icon" sizes="192x192" href="icon192.png">
+	<link rel="icon" sizes="128x128" href="icon128.png">
+	
 	<meta charset="utf-8">
 	<link href="jquery-ui.css" rel="stylesheet">
-
 	<link rel="stylesheet" href="styles.css" />
-	<script src="external/jquery/jquery.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="jquery-ui.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 	<script type="text/javascript" src="jquery.event.move.js"></script>
+	
 </head>
-<body>
-	<div id="slider"></div>
+<body style="width: 300px;">
+	<div id="content">
+		<div id="slider"></div>
+
+		<br/>
+		<br/>
+
+		<button type="button" onClick="start()" class="btn btn-default btn-sm">
+			<img src="images/dice.png"/>
+		</button>
+
+		<br/>
+		<br/>
+		<div id="result"/>
+	</div>
 </body>
-</html>
+</html>	
