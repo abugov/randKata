@@ -66,7 +66,9 @@ allKatas = [
 ];
 
 $( document ).ready(function() {
-  
+  handleFromValue = storageLoad("fromKata", 1);
+  handleToValue = storageLoad("toKata", 90);
+
   var slider = $( "#slider" );
 
   slider.slider({
@@ -75,17 +77,15 @@ $( document ).ready(function() {
     min: 1,
     max: 90,
     step: 1,
-    values: [ 1, 90 ],
+    values: [ handleFromValue, handleToValue ],
 
     // slide event - when one of the handles is moved
     slide: function( event, ui ) {
-      // make the the handles are not to close to each other
+      // make sure the handles are not to close to each other
       if (Math.abs(ui.values[0] - ui.values[1]) < 5) {
         event.preventDefault();
+        return;
       }
-
-      // find which belt represents the handle location
-      var beltIndex = Math.ceil(ui.value / 10) - 1;
 
       // remove previous belt class
       $.each(belts, function (index, value) {
@@ -93,7 +93,12 @@ $( document ).ready(function() {
       });
 
       // set the belt class
-      $(ui.handle).addClass(belts[beltIndex]);
+      var belt = handleToBelt(ui.value);
+      $(ui.handle).addClass(belt);
+
+      // save to  storage
+      storageSave("fromKata", ui.values[0]);
+      storageSave("toKata", ui.values[1]);
     }
   });
 
@@ -101,12 +106,18 @@ $( document ).ready(function() {
   var handles = document.getElementsByClassName("ui-slider-handle");
   handleFrom = $(handles[0]);
   handleTo = $(handles[1]);
-  handleFrom.addClass(belts[0]);
-  handleTo.addClass(belts[belts.length - 1]);
+  handleFrom.addClass(handleToBelt(handleFromValue));
+  handleTo.addClass(handleToBelt(handleToValue));
 
   // elements
   resultElement = $("#result");
 });
+
+// find which belt is represented by the handle location
+function handleToBelt(handleValue) {
+  var beltIndex = Math.ceil(handleValue / 10) - 1;
+  return belts[beltIndex]
+}
 
 function start() {
   // get the range of wanted Katas between the 2 belts on the slide.
