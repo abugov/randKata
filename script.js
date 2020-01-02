@@ -17,7 +17,7 @@ allKatas = [
   [
     {name: "Pinan Sono Ichi"},
     {name: "Pinan Sono Ni"},
-    {name: "Snachin"},
+    {name: "Snanchin"},
   ],
   // yellow
   [
